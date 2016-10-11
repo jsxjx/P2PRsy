@@ -1,8 +1,0 @@
-from django.shortcuts import render
-
-
-def index(request):
-    return render(request, 'p2p_website/index.html')
-
-def borrower(requesr):
-    return render(request, 'p2p_website/borrower.html')
