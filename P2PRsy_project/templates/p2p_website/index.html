@@ -9,7 +9,7 @@ Index
 <div class="banner">
   <div class="banner-info">
     <h3>想获取贷款数据？</h3>
-    <a href="" style="font-size:20px" class="btn btn-block btn-large btn-warning">获取数据</a>
+    <a href="http://10.141.245.16:8001" style="font-size:20px" class="btn btn-block btn-large btn-warning">获取数据</a>
   </div>
 </div>
 <div class="container m-t-lg">
@@ -34,176 +34,32 @@ Index
         </div>
       </p>
     </a>
-    <a href="#" class="list-group-item">
+    {% for loan in loans %}
+    <a href="{% url 'loan_info' loan.loan_id %}" class="list-group-item">
       <div class=" row">
         <div class="col-sm-4">
-          <p class="titles">标题按实际福利卡设计费sfdaafdsafdsaf</p>
-          <div><span class="glyphicon glyphicon-user"></span>kasjfklajsfl</div>
+          <p class="titles">{{ loan.loan_id  }}号贷款</p>
+          <div><span class="glyphicon glyphicon-user"></span>username</div>
 	</div>
         <div class="col-sm-2">
-          <strong>12%</strong>
+          <strong>{{ loan.loan_rate }}</strong>
         </div>
         <div class="col-sm-2">
-          <strong>2000</strong>元
-        </div>
-        <div class="col-sm-2">
-          <strong>1</strong>年
-        </div>
-        <div class="col-sm-2">
-          <div class="progress">
-            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-              60%
-            </div>
-          </div>
-        </div>
-      </div>
-    </a>
-    <a href="#" class="list-group-item">
-      <div class=" row">
-        <div class="col-sm-4">
-          <p class="titles">标题按实际福利卡设计费sfdaafdsafdsaf</p>
-          <div><span class="glyphicon glyphicon-user"></span>kasjfklajsfl</div>
-	</div>
-	<div class="col-sm-2">
-	  <strong>12%</strong>
-	</div>
-        <div class="col-sm-2">
-          <strong>2000</strong>元
+          <strong>{{ loan.loan_amount }}</strong>元
         </div>
         <div class="col-sm-2">
           <strong>1</strong>年
         </div>
         <div class="col-sm-2">
           <div class="progress">
-            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-              60%
+            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: {{ loan.loan_progress }}">
+	      {{ loan.loan_progress }}
             </div>
           </div>
         </div>
       </div>
     </a>
-    
-    <a href="#" class="list-group-item">
-      <div class=" row">
-        <div class="col-sm-4">
-          <p class="titles">标题按实际福利卡设计费sfdaafdsafdsaf</p>
-          <div><span class="glyphicon glyphicon-user"></span>kasjfklajsfl</div>
-	</div>
-	<div class="col-sm-2">
-	  <strong>12%</strong>
-	</div>
-	<div class="col-sm-2">
-          <strong>2000</strong>元
-        </div>
-        <div class="col-sm-2">
-          <strong>1</strong>年
-        </div>
-        <div class="col-sm-2">
-          <div class="progress">
-            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-              60%
-            </div>
-          </div>
-        </div>
-      </div>
-    </a>
-    
-    <a href="#" class="list-group-item">
-      <div class=" row">
-        <div class="col-sm-4">
-          <p class="titles">标题按实际福利卡设计费sfdaafdsafdsaf</p>
-          <div><span class="glyphicon glyphicon-user"></span>kasjfklajsfl</div>
-        </div>
-        <div class="col-sm-2">
-          <strong>12%</strong>
-        </div>
-        <div class="col-sm-2">
-          <strong>2000</strong>元
-        </div>
-        <div class="col-sm-2">
-          <strong>1</strong>年
-        </div>
-        <div class="col-sm-2">
-          <div class="progress">
-            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-              60%
-            </div>
-          </div>
-        </div>
-      </div>
-    </a>
-    <a href="#" class="list-group-item">
-      <div class=" row">
-        <div class="col-sm-4">
-          <p class="titles">标题按实际福利卡设计费sfdaafdsafdsaf</p>
-          <div><span class="glyphicon glyphicon-user"></span>kasjfklajsfl</div>
-        </div>
-        <div class="col-sm-2">
-          <strong>12%</strong>
-        </div>
-        <div class="col-sm-2">
-          <strong>2000</strong>元
-        </div>
-        <div class="col-sm-2">
-          <strong>1</strong>年
-        </div>
-        <div class="col-sm-2">
-          <div class="progress">
-            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-              60%
-            </div>
-          </div>
-        </div>
-      </div>
-    </a>
-    <a href="#" class="list-group-item">
-      <div class=" row">
-        <div class="col-sm-4">
-          <p class="titles">标题按实际福利卡设计费sfdaafdsafdsaf</p>
-          <div><span class="glyphicon glyphicon-user"></span>kasjfklajsfl</div>
-        </div>
-        <div class="col-sm-2">
-          <strong>12%</strong>
-        </div>
-        <div class="col-sm-2">
-          <strong>2000</strong>元
-        </div>
-        <div class="col-sm-2">
-          <strong>1</strong>年
-        </div>
-        <div class="col-sm-2">
-          <div class="progress">
-            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-              60%
-            </div>
-          </div>
-        </div>
-      </div>
-    </a>
-    <a href="#" class="list-group-item">
-      <div class=" row">
-        <div class="col-sm-4">
-          <p class="titles">标题按实际福利卡设计费sfdaafdsafdsaf</p>
-          <div><span class="glyphicon glyphicon-user"></span>kasjfklajsfl</div>
-        </div>
-        <div class="col-sm-2">
-          <strong>12%</strong>
-        </div>
-        <div class="col-sm-2">
-          <strong>2000</strong>元
-        </div>
-        <div class="col-sm-2">
-          <strong>1</strong>年
-        </div>
-        <div class="col-sm-2">
-          <div class="progress">
-            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-              60%
-            </div>
-          </div>
-        </div>
-      </div>
-    </a>
+    {% endfor %}
   </div>
 </div>
 {% endblock %}
