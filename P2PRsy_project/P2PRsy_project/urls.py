@@ -19,5 +19,7 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^p2p_website/', include('p2p_website.urls')),
-    url(r'', include('p2p_website.urls')),
+    url(r'^data_download/', include('data_download.urls')),
+    url(r'^account/', include('account.urls')),
+    url(r'', include('p2p_website.urls')),    
 ]

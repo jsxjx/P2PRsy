@@ -1,4 +1,4 @@
-{% extends "p2p_website/base.html" %}
+{% extends "base.html" %}
 {% load staticfiles %}
 
 {% block title_block %}
@@ -10,22 +10,22 @@
     <div style="height:40px;width:100%"></div>
     <div class="section">
       <div class="title">
-	<span style="padding-left:20px;padding-top:10px">hh14300240009的第<span>1</span>次借款</span>
+	<span style="padding-left:20px;padding-top:10px">第<span>{{ loan.loan_id }}</span>号贷款</span>
 
-	<div class="pull-right" style="padding-right:20px;"><span class="glyphicon glyphicon-user"></span>kasjfklajsf</div>
+	<div class="pull-right" style="padding-right:20px;"><span class="glyphicon glyphicon-user"></span>username</div>
       </div>
       <div class="detail clearfix">
-	<span style="padding-left:20px;font-size: 14px;color: #666;padding-top:10px">借款种类：<span>~~</span></span><br/>
+	<span style="padding-left:20px;font-size: 14px;color: #666;padding-top:10px">借款种类：<span>房贷</span></span><br/>
 	<dl class="specify">
 	  <dt class="small_dt">借款金额:</dt>
 	  <dt class="large_dt">
-	    ¥<span>10000</span>
+	    ¥<span>{{ loan.loan_amount }}</span>
 	  </dt>	
 	</dl>
 	<dl class="specify">
 	  <dt class="small_dt">年利率:</dt>
 	  <dt class="large_dt">
-	    <span>12</span>%
+	    <span>{{ loan.loan_rate }}</span>%
 	  </dt>	
 	</dl>
 	<dl class="last_dl">
@@ -46,41 +46,17 @@
       <p class="borrow_history"><span class="glyphicon glyphicon-th-list"></span> 投标记录:</p>
       <table class="tablestyle">
 	<tr>
-	  <th class = "head1">Name</th>
-	  <th class = "head2">Profit</th>
-	  <th class = "head3">Quantity</th>
-	  <th class = "head4">Time</th>
+	  <td class = "head1">用户ID</th>
+	  <td class = "head3">投资金额</th>
+	  <td class = "head4">投资时间</th>
 	</tr>
+	{% for bid in bids %}
 	<tr class="body2">
-	  <td>hh14300240009</td>
-	  <td>12%</td>
-	  <td>$43</td>
-	  <td>2016-10-08</td>
+	  <td><a href="{% url 'p2p_website:user_info' bid.user_id %}">user_{{ bid.user_id }}</a></td>
+	  <td>¥{{ bid.bid_amount }}</td>
+	  <td>{{ bid.bid_time }}</td>
 	</tr>
-	<tr class="body">
-	  <td>hh14300240009</td>
-	  <td>12%</td>
-	  <td>$43</td>
-	  <td>2016-10-08</td>
-	</tr>
-	<tr class="body2">
-	  <td>hh14300240009</td>
-	  <td>12%</td>
-	  <td>$43</td>
-	  <td>2016-10-08</td>
-	</tr>
-	<tr class="body">
-	  <td>hh14300240009</td>
-	  <td>12%</td>
-	  <td>$43</td>
-	  <td>2016-10-08</td>
-	</tr>
-	<tr class="body2">
-	  <td>hh14300240009</td>
-	  <td>12%</td>
-	  <td>$43</td>
-	  <td>2016-10-08</td>
-	</tr>
+	{% endfor %}
       </table>
       <p class="borrow_history"><span class="glyphicon glyphicon-refresh"></span>债权转让记录：<br/>
 	<span style="font-size:15px;color:#A9A9A9">暂无相关记录</span>
