@@ -3,6 +3,7 @@ from django.contrib import admin
 
 from p2p_website import views
 
+app_name = "p2p_website"
 urlpatterns = [
     url(r'^$', views.index),
     url(r'^index/$', views.index, name="index"),

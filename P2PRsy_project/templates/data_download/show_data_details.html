@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+Data Details - {{ file.name }}
+{% endblock %}
+
+{% block content_block %}
+<div class="container">
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <h2>{{ file.name }}</h2>
+      <hr />
+      
+      <h3>数据集描述:</h3><br />
+      {% if file.description %}
+      <p>{{ file.description }}</p>
+      {% else %}
+      <p><strong>No Description Here</strong></p>
+      {% endif %}
+      <hr />
+      
+      <h3>图片:</h3>
+      {% if file.description_img %}
+      <img src="/{{ file.description_img }}" height="500px" width="100%" />
+      {% else %}
+      <p><strong>没有图片</strong></p>
+      {% endif %}
+      <hr />
+      <a class="btn btn-primary" role="button" href="{% url 'data_download:download_data' file.hash_code %}">下载</a>
+    </div>
+  </div>
+</div>
+{% endblock %}

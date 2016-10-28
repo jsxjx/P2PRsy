@@ -1,4 +1,4 @@
-{% extends 'p2p_website/base.html' %}
+{% extends 'base.html' %}
 {% load staticfiles %}
 
 {% block title_block %}
@@ -8,7 +8,7 @@
 {% block content_block %}
 <div class="top">
   <div class="div-img">
-    <img class="image" src = "icon1.png"/></div>
+    <img class="image" src = "{% static 'p2p_website/images/icon1.png' %}"/></div>
   <h4 >借款人：<span>hh14300240009</span></h4>
   <div class="bg_black">
     <h6>成功借款数：<span>10</span>&nbsp&nbsp|&nbsp&nbsp 借款信用：<span>50</span></h6>

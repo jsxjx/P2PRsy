@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block title_block %}
+Data Download Platform
+{% endblock %}
+
+{% block content_block %}
+<!-- Main jumbotron for a primary marketing message or call to action -->
+<div class="jumbotron">
+  <div class="container">
+    <h1>欢迎来到数据下载平台</h1>
+    <p>我们提供有价值的金融科研数据，快来登录下载吧！</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    {% for each_file in files %}
+    <div class="col-md-4" style="height:300px;">
+      <h3>{{ each_file.name }}</h3>
+      <p>{{ each_file.description|slice:":100" }}
+	{% if each_file.description|length > 100 %}
+	...
+	{% endif %}
+      </p>
+      <p><a class="btn btn-default" href="{% url 'data_download:show_data_details' each_file.hash_code %}" role="button">详情 &raquo;</a></p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

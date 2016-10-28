@@ -1,4 +1,4 @@
-{% extends "p2p_website/base.html" %}
+{% extends "base.html" %}
 {% load staticfiles %}
 
 {% block title_block %}
@@ -52,7 +52,7 @@
 	</tr>
 	{% for bid in bids %}
 	<tr class="body2">
-	  <td><a href="{% url 'user_info' bid.user_id %}">user_{{ bid.user_id }}</a></td>
+	  <td><a href="{% url 'p2p_website:user_info' bid.user_id %}">user_{{ bid.user_id }}</a></td>
 	  <td>¥{{ bid.bid_amount }}</td>
 	  <td>{{ bid.bid_time }}</td>
 	</tr>

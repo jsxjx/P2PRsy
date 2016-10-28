@@ -7,10 +7,12 @@ user = "bigdata"
 passwd = "1234567890aAa"
 db = "p2p_rsy"
 
-connect = MySQLdb.connect(host=host, user=user, passwd=passwd, db=db)
-cursor = connect.cursor()
 
 def index(request):
+    
+    connect = MySQLdb.connect(host=host, user=user, passwd=passwd, db=db)
+    cursor = connect.cursor()
+
     sql = "select * from list_attr limit 1000"
     cursor.execute(sql)
     loans = cursor.fetchall()
@@ -33,12 +35,21 @@ def index(request):
                      "loan_progress": "%.0f%%" % (100.0 * investiment_amount / loan_amount),}
         if 100.0 * investiment_amount / loan_amount >= 30:
             context["loans"].append(loan_dict)
+    connect.close()
     return render(request, 'p2p_website/index.html', context)
 
 def user_info(request, user_id):
+    connect = MySQLdb.connect(host=host, user=user, passwd=passwd, db=db)
+    cursor = connect.cursor()
+
+    connect.close()
     return render(request, 'p2p_website/user_info.html')
 
 def loan_info(request, loan_id):
+    
+    connect = MySQLdb.connect(host=host, user=user, passwd=passwd, db=db)
+    cursor = connect.cursor()
+    
     sql = "select * from list_attr where list_id={0}".format(loan_id)
     cursor.execute(sql)
     try:
@@ -58,4 +69,5 @@ def loan_info(request, loan_id):
                     "bid_amount": bid[2],
                     "bid_time": bid[3],}
         context["bids"].append(bid_dict)
+    connect.close()
     return render(request, 'p2p_website/loan_info.html', context)

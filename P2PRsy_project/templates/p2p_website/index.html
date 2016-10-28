@@ -1,4 +1,4 @@
-{% extends 'p2p_website/base.html' %}
+{% extends 'base.html' %}
 {% load staticfiles %}
 
 {% block title_block %}
@@ -9,13 +9,13 @@ Index
 <div class="banner">
   <div class="banner-info">
     <h3>想获取贷款数据？</h3>
-    <a href="http://10.141.245.16:8001" style="font-size:20px" class="btn btn-block btn-large btn-warning">获取数据</a>
+    <a href="{% url 'data_download:index' %}" style="font-size:20px" class="btn btn-block btn-large btn-warning">获取数据</a>
   </div>
 </div>
 <div class="container m-t-lg">
   <h6><span class="glyphicon glyphicon-fire text-danger"></span>优质贷款</h6>
   <div class="list-group">
-    <a href="borrow_info.html" class="list-group-item">
+    <a href="#" class="list-group-item">
       <p class="list-group-item-text row">
         <div class="col-sm-4">
           标题
@@ -35,7 +35,7 @@ Index
       </p>
     </a>
     {% for loan in loans %}
-    <a href="{% url 'loan_info' loan.loan_id %}" class="list-group-item">
+    <a href="{% url 'p2p_website:loan_info' loan.loan_id %}" class="list-group-item">
       <div class=" row">
         <div class="col-sm-4">
           <p class="titles">{{ loan.loan_id  }}号贷款</p>
