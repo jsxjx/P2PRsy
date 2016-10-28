@@ -80,7 +80,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'p2p',
         'USER':'up2p',
-        'PASSWORD':'chenkun',
+        'PASSWORD':'up2p',
         'HOST':'127.0.0.1',
         'PORT':'5432',
     }
@@ -125,4 +125,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 from psycopg2 import connect
-connect(database='p2p',user='up2p',password='chenkun',host='127.0.0.1')
+connect(database='p2p',user='up2p',password='up2p',host='127.0.0.1')
